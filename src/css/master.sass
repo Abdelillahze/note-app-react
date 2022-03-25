@@ -1,0 +1,123 @@
+@import "../../../framework/_basic";
+@import "../../../framework/_mixin";
+
+$main-color: #F44336;
+$border-color: #d5d5d5
+
+*
+    font-family: 'Nunito', sans-serif;
+
+header
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 50px;
+    .container
+        @include flex(space-between, center, row)
+        h1
+            color: $main-color;
+        ul
+            @include flex(space-between, center, row)
+            li
+                &.active a, &:hover a
+                    color: $main-color;
+                a
+                    transition: .3s;
+                &:not(:last-child)
+                    margin-right: 10px;
+
+section.home
+    .container
+        h1
+        color: $main-color;
+        .empty
+            margin-top: 40px;
+            font-weight: bold;
+            color: black;
+            font-size: 20px;
+            text-align: center;
+            a
+                text-decoration: underline;
+                color: $main-color;
+                font-size: 18px;
+        .notes
+            margin-top: 30px;
+            max-width: 100%;
+            @include grid(300px, 1fr)
+            grid-gap: 20px;
+            .note
+                padding: 15px;
+                height: 130px;
+                border-radius: 5px;
+                background-color: #f3f2f2;
+                &:not(:last-child)
+                    margin-bottom: 10px;
+                h1
+                    color: $main-color;
+                    margin-bottom: 5px;
+
+section.create
+    h1
+        color: $main-color;
+        margin-bottom: 20px;
+        text-align: center;
+    .container
+        @include flex(center, center, row)
+        form
+            width: 50%;
+        label
+            display: block;
+            margin-bottom: 5px;
+        input, textarea
+            margin-bottom: 10px;
+            width: 100%;
+            outline: none;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid $border-color;
+        textarea
+            height: 200px;
+            resize: none;
+        button
+            color: white;
+            background-color: $main-color;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            height: 40px;
+            cursor: pointer;
+
+@media ( max-width: 767px )
+    .create
+        form
+            width: 100% !important;
+
+.note-details
+    .container
+        input, textarea
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 5px;
+        input
+            color: $main-color;
+            font-weight: bold;
+            font-size: 30px;
+        textarea
+            margin-bottom: 10px;
+            height: 200px;
+            resize: none;
+            font-size: 20px;
+        section
+            margin-bottom: 10px;
+            @include flex(space-between, center, row)
+            .buttons
+                @include flex(flex-start, center, row)
+                button
+                    padding: 5px;
+                    background-color: $main-color;
+                    border: none;
+                    color: white;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    margin-right: 5px;
